@@ -12,7 +12,7 @@
     <!--Css link-->
     <link rel="stylesheet" href="style.css" />
     <!--javaScript link defer will run javascript after html-->
-    <script defer src="main.js"></script>
+    <script src="./main.js"></script>
     <title>Toy Tale</title>
   </head>
   <body>
@@ -23,7 +23,7 @@
         class="logo"
       />
     </div>
-    <main class="main">
+    <div class="container">
       <form class="add-toy-form">
         <h3>Create a toy!</h3>
 
@@ -45,14 +45,10 @@
         <br />
         <input type="submit" name="submit" class="submit" value="Create Toy" />
       </form>
+    </div>
 
-      <p style="text-align: center">
-        Andy needs your help! <button id="new-toy-btn">Add a new toy!</button>
-      </p>
-
-      <section class="collection">
-        <!--data from api-->
-      </section>
-    </main>
+    <p style="text-align: center">
+      Andy needs your help! <button id="new-toy-btn">Add a new toy!</button>
+    </p>
   </body>
 </html>
