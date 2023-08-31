@@ -41,7 +41,28 @@ const createElement = (toy) => {
   button.textContent = "Like ❤️";
   button.classList.add("like-btn");
 
+  button.addEventListener("click", () => {
+    p.textContent = `${(toy.likes += 1)} Likes`;
+
+    updateLikes(toy.id, toy.likes);
+  });
+
+  // add elements to the dom
   card.append(img, h2, p, button);
 
   document.getElementById("main-container").appendChild(card);
+};
+
+const updateLikes = (id, numberOfNewLikes) => {
+  fetch(`http://localhost:3000/toys/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+
+    body: JSON.stringify({
+      likes: numberOfNewLikes,
+    }),
+  });
 };
