@@ -14,6 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
     addBtn.style.display = "none";
   });
 
+  const form = document.querySelector("form.add-toy-form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = Object.fromEntries(new FormData(e.target));
+
+    sentItOut(formData);
+  });
+
   getData();
 });
 
@@ -53,7 +62,8 @@ const createElement = (toy) => {
   document.getElementById("main-container").appendChild(card);
 };
 
-const updateLikes = (id, numberOfNewLikes) => {
+// function for update likes
+function updateLikes(id, numberOfNewLikes) {
   fetch(`http://localhost:3000/toys/${id}`, {
     method: "PATCH",
     headers: {
@@ -65,4 +75,21 @@ const updateLikes = (id, numberOfNewLikes) => {
       likes: numberOfNewLikes,
     }),
   });
-};
+}
+
+function sentItOut(newToy) {
+  fetch("http://localhost:3000/toys", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+
+    body: JSON.stringify({
+      ...newToy,
+      likes: 0,
+    }),
+  })
+    .then((response) => response.json())
+    .then((responseToy) => createElement(responseToy));
+}
