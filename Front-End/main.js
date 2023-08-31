@@ -20,5 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
 const getData = async () => {
   const response = await fetch("http://localhost:3000/toys");
   const getToys = await response.json();
-  getData.forEach((toy) => createElement(toy));
+  getToys.forEach((toy) => createElement(toy));
+};
+
+const createElement = (toy) => {
+  let card = document.createElement("div");
+  card.className = "card";
+
+  let h2 = document.createComment("h2");
+  h2.textContent = toy.name;
+
+  let img = document.createElement("img");
+
+  card.append(h2);
+
+  document.getElementById("main-container").appendChild(card);
 };

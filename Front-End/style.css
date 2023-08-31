@@ -96,3 +96,24 @@ p {
   font-size: 20px;
   font-weight: 900;
 }
+
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 15rem;
+  height: 25rem;
+  display: inline-grid;
+  margin: 1rem 1rem;
+  box-shadow: 3px 4px #e04b52;
+}
+
+.toy-avatar {
+  justify-self: center;
+  height: 12rem;
+  width: auto;
+}
+
+#main-container {
+  margin: 2rem;
+}
