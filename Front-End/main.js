@@ -13,4 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     hideBtn.style.display = "none";
     addBtn.style.display = "none";
   });
+
+  getData();
 });
+
+const getData = async () => {
+  const response = await fetch("http://localhost:3000/toys");
+  const getToys = await response.json();
+  getData.forEach((toy) => createElement(toy));
+};
