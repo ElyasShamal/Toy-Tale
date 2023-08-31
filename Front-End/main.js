@@ -25,14 +25,23 @@ const getData = async () => {
 
 const createElement = (toy) => {
   let card = document.createElement("div");
-  card.className = "card";
+  card.classList.add("card");
 
-  let h2 = document.createComment("h2");
+  let h2 = document.createElement("h2");
   h2.textContent = toy.name;
 
   let img = document.createElement("img");
+  img.src = toy.image;
+  img.classList.add("toy-avatar");
 
-  card.append(h2);
+  let p = document.createElement("p");
+  p.textContent = `${toy.likes} Likes`;
+
+  let button = document.createElement("button");
+  button.textContent = "Like ❤️";
+  button.classList.add("like-btn");
+
+  card.append(img, h2, p, button);
 
   document.getElementById("main-container").appendChild(card);
 };
