@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: #515da2;
-  height: 15rem;
+  height: 14rem;
   padding-top: 4rem;
   opacity: 8;
 }
@@ -50,6 +50,7 @@ button:hover {
 h3 {
   font-size: 2rem;
   padding: 10px 0px;
+  color: #e04b52;
 }
 
 .submit {
@@ -87,6 +88,8 @@ h3 {
   width: stretch;
   height: auto;
   display: none;
+  background-color: #515da2;
+  opacity: 8;
 }
 
 p {
