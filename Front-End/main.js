@@ -11,7 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // hide and show for the paragraph and Add a new toy button
     let hideBtn = document.getElementById("hideBtn");
     hideBtn.style.display = "none";
-    addBtn.style.display = "none";
+  });
+
+  let close = document.getElementById("close");
+
+  close.addEventListener("click", () => {
+    toyFormContainer.style.display = "none ";
+    hideBtn.style.display = "block";
   });
 
   const form = document.querySelector("form.add-toy-form");
