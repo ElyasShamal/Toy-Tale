@@ -53,7 +53,7 @@ const createElement = (toy, addDeleteButton = false) => {
   });
 
   // add elements to the dom
-  card.append(img, h2, p, button);
+  card.append(img, h2, p, button /*deleteButton*/);
 
   document.getElementById("main-container").appendChild(card);
 
