@@ -117,3 +117,15 @@ p {
 #main-container {
   margin: 2rem;
 }
+
+@media screen and (max-width: 385px) {
+  p {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .input-text {
+    width: 100%;
+  }
+}

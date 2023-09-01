@@ -52,8 +52,19 @@ const createElement = (toy) => {
     updateLikes(toy.id, toy.likes);
   });
 
+  // add new button to delete spasific div from dom
+
+  // const deleteButton = document.createElement("button");
+  // deleteButton.textContent = "Delete 🗑️";
+  // deleteButton.classList.add("delete-btn");
+
+  // deleteButton.addEventListener("click", () => {
+  //   card.remove();
+  //   deleteToy(toy.id);
+  // });
+
   // add elements to the dom
-  card.append(img, h2, p, button);
+  card.append(img, h2, p, button /*deleteButton */);
 
   document.getElementById("main-container").appendChild(card);
 };
@@ -89,3 +100,15 @@ function sentItOut(newToy) {
     .then((response) => response.json())
     .then((responseToy) => createElement(responseToy));
 }
+
+// add delete function to delete spacific div from database
+
+// function deleteToy(id) {
+//   fetch(`https://toy-tale-backend.onrender.com/toys/${id}`, {
+//     method: "DELETE",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "application/json",
+//     },
+//   });
+// }
