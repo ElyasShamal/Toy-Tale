@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const getData = async () => {
-  const response = await fetch("http://localhost:3000/toys");
+  const response = await fetch("https://toy-tale-backend.onrender.com/toys");
   const getToys = await response.json();
   getToys.forEach((toy) => createElement(toy));
 };
@@ -70,7 +70,7 @@ const createElement = (toy) => {
 
 // function for update likes
 function updateLikes(id, numberOfNewLikes) {
-  fetch(`http://localhost:3000/toys/${id}`, {
+  fetch(`https://toy-tale-backend.onrender.com/toys/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -84,7 +84,7 @@ function updateLikes(id, numberOfNewLikes) {
 }
 
 function sentItOut(newToy) {
-  fetch("http://localhost:3000/toys", {
+  fetch("https://toy-tale-backend.onrender.com/toys", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
