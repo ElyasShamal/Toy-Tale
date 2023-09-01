@@ -28,7 +28,7 @@ const getData = async () => {
   getToys.forEach((toy) => createElement(toy));
 };
 
-const createElement = (toy) => {
+const createElement = (toy, addDeleteButton = false) => {
   let card = document.createElement("div");
   card.classList.add("card");
 
@@ -52,21 +52,25 @@ const createElement = (toy) => {
     updateLikes(toy.id, toy.likes);
   });
 
-  // add new button to delete spasific div from dom
-
-  // const deleteButton = document.createElement("button");
-  // deleteButton.textContent = "Delete 🗑️";
-  // deleteButton.classList.add("delete-btn");
-
-  // deleteButton.addEventListener("click", () => {
-  //   card.remove();
-  //   deleteToy(toy.id);
-  // });
-
   // add elements to the dom
-  card.append(img, h2, p, button /*deleteButton */);
+  card.append(img, h2, p, button);
 
   document.getElementById("main-container").appendChild(card);
+
+  if (addDeleteButton) {
+    // Add a delete button if specified
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete 🗑️";
+    deleteButton.classList.add("delete-btn");
+
+    deleteButton.addEventListener("click", () => {
+      card.remove();
+      deleteToy(toy.id);
+    });
+
+    // Append the delete button to the card
+    card.appendChild(deleteButton);
+  }
 };
 
 // function for update likes
@@ -98,17 +102,17 @@ function sentItOut(newToy) {
     }),
   })
     .then((response) => response.json())
-    .then((responseToy) => createElement(responseToy));
+    .then((responseToy) => createElement(responseToy, true));
 }
 
 // add delete function to delete spacific div from database
 
-// function deleteToy(id) {
-//   fetch(`https://toy-tale-backend.onrender.com/toys/${id}`, {
-//     method: "DELETE",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Accept: "application/json",
-//     },
-//   });
-// }
+function deleteToy(id) {
+  fetch(`https://toy-tale-backend.onrender.com/toys/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+}
