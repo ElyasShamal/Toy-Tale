@@ -114,6 +114,11 @@ p {
   width: auto;
 }
 
+#loading {
+  text-align: center;
+  font-size: 30px;
+  color: #e04b52;
+}
 #main-container {
   margin: 2rem;
 }

@@ -26,7 +26,14 @@ const getData = async () => {
   const response = await fetch("https://toy-tale-backend.onrender.com/toys");
   const getToys = await response.json();
   getToys.forEach((toy) => createElement(toy));
+  if (response) {
+    hideLoader();
+  }
 };
+
+function hideLoader() {
+  document.getElementById("loading").style.display = "none";
+}
 
 const createElement = (toy, addDeleteButton = false) => {
   let card = document.createElement("div");
