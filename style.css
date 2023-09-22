@@ -115,8 +115,9 @@ p {
 }
 
 #loading {
+  margin-top: 30px;
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   color: #e04b52;
 }
 #main-container {
